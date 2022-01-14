@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Hello VR World</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+  </head>
+  <body>
+    <a-assets>
+      <a-asset-item id="Boekenkast.obj" src="/Assests/Boekenkast.obj"></a-asset-item>
+      <a-asset-item id="Boekenkast.mtl" src="/Assests/Boekenkast.mtl"></a-asset-item>
+    </a-assets>
+    <a-scene>
+      <a-plane width="50" height="100" color="black" position="0 0 -40" rotation="-90 0 0"> </a-plane>
+      <a-plane width="40" height="40" color="black" position="30 0 -10" rotation="-90 0 0"> </a-plane>
+      <a-camera>
+        <a-cursor> </a-cursor>
+      </a-camera>
+    </a-scene>
+  </body>
+</html>
