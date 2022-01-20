@@ -1,62 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Hello VR World</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-  </head>
-  <body>
+</head>
+
+<body>
     <a-assets>
-      <a-asset-item id="plattegrond.obj" src="./assets/3D/obj/plattegrond.obj"></a-asset-item>
-      <a-asset-item id="plattegrond.mtl" src="./assets/3D/mtl/plattegrond.mtl"></a-asset-item>
-      <a-asset-item id="prullenbak.obj" src="./assets/3D/obj/prullenbak.obj"></a-asset-item>
-      <a-asset-item id="prullenbak.mtl" src="./assets/3D/mtl/prullenbak.mtl"></a-asset-item>
-      <a-asset-item id="deur.obj" src="./assets/3D/obj/deur.obj"></a-asset-item>
-      <a-asset-item id="deur.mtl" src="./assets/3D/mtl/deur.mtl"></a-asset-item>
-      <a-asset-item id="Boekenkast.obj" src="./assets/3D/obj/Boekenkast.obj"></a-asset-item>
-      <a-asset-item id="Boekenkast.mtl" src="./assets/3D/mtl/Boekenkast.mtl"></a-asset-item>
-      <a-asset-item id="bank.obj" src="./assets/3D/obj/bank.obj"></a-asset-item>
-      <a-asset-item id="bank.mtl" src="./assets/3D/mtl/bank.mtl"></a-asset-item>
-      <a-asset-item id="Tafel.obj" src="./assets/3D/obj/Tafel.obj"></a-asset-item>
-      <a-asset-item id="Tafel.mtl" src="./assets/3D/mtl/Tafel.mtl"></a-asset-item>
-      <a-asset-item id="Scgerm.obj" src="./assets/3D/obj/Scgerm.obj"></a-asset-item>
-      <a-asset-item id="Scgerm.mtl" src="./assets/3D/mtl/Scgerm.mtl"></a-asset-item>
-      <a-asset-item id="BOEK.obj" src="./assets/3D/obj/BOEK.obj"></a-asset-item>
-      <a-asset-item id="BOEK.mtl" src="./assets/3D/mtl/BOEK.mtl"></a-asset-item>
-      <a-asset-item id="printer.obj" src="./assets/3D/obj/printer.obj"></a-asset-item>
-      <a-asset-item id="printer.mtl" src="./assets/3D/mtl/printer.mtl"></a-asset-item>
-      <a-asset-item id="raam.mtl" src="./assets/3D/mtl/raam.mtl"></a-asset-item>
-      <a-asset-item id="raam.obj" src="./assets/3D/obj/raam.obj"></a-asset-item>
-      <a-asset-item id="receptie.mtl" src="./assets/3D/mtl/receptie.mtl"></a-asset-item>
-      <a-asset-item id="receptie.obj" src="./assets/3D/obj/receptie.obj"></a-asset-item>
+        <a-asset-item id="plattegrond.obj" src="./assets/3D/obj/plattegrond.obj"></a-asset-item>
+        <a-asset-item id="plattegrond.mtl" src="./assets/3D/mtl/plattegrond.mtl"></a-asset-item>
+        <a-asset-item id="prullenbak.obj" src="./assets/3D/obj/prullenbak.obj"></a-asset-item>
+        <a-asset-item id="prullenbak.mtl" src="./assets/3D/mtl/prullenbak.mtl"></a-asset-item>
+        <a-asset-item id="deur.obj" src="./assets/3D/obj/deur.obj"></a-asset-item>
+        <a-asset-item id="deur.mtl" src="./assets/3D/mtl/deur.mtl"></a-asset-item>
+        <a-asset-item id="Boekenkast.obj" src="./assets/3D/obj/Boekenkast.obj"></a-asset-item>
+        <a-asset-item id="Boekenkast.mtl" src="./assets/3D/mtl/Boekenkast.mtl"></a-asset-item>
+        <a-asset-item id="bank.obj" src="./assets/3D/obj/bank.obj"></a-asset-item>
+        <a-asset-item id="bank.mtl" src="./assets/3D/mtl/bank.mtl"></a-asset-item>
+        <a-asset-item id="Tafel.obj" src="./assets/3D/obj/Tafel.obj"></a-asset-item>
+        <a-asset-item id="Tafel.mtl" src="./assets/3D/mtl/Tafel.mtl"></a-asset-item>
+        <a-asset-item id="Scgerm.obj" src="./assets/3D/obj/Scgerm.obj"></a-asset-item>
+        <a-asset-item id="Scgerm.mtl" src="./assets/3D/mtl/Scgerm.mtl"></a-asset-item>
+        <a-asset-item id="BOEK.obj" src="./assets/3D/obj/BOEK.obj"></a-asset-item>
+        <a-asset-item id="BOEK.mtl" src="./assets/3D/mtl/BOEK.mtl"></a-asset-item>
+        <a-asset-item id="printer.obj" src="./assets/3D/obj/printer.obj"></a-asset-item>
+        <a-asset-item id="printer.mtl" src="./assets/3D/mtl/printer.mtl"></a-asset-item>
+        <a-asset-item id="raam.mtl" src="./assets/3D/mtl/raam.mtl"></a-asset-item>
+        <a-asset-item id="raam.obj" src="./assets/3D/obj/raam.obj"></a-asset-item>
+        <a-asset-item id="receptie.mtl" src="./assets/3D/mtl/receptie.mtl"></a-asset-item>
+        <a-asset-item id="receptie.obj" src="./assets/3D/obj/receptie.obj"></a-asset-item>
     </a-assets>
     <a-scene>
-      <a-plane width="100" height="100" color="black" position="0 0 -5" rotation="-90 0 0"> </a-plane>
-      <a-entity position="5 0 -5" obj-model="obj: #plattegrond.obj;" material="color:burlywood"></a-entity>
-      <a-entity position="5 0 -5" obj-model="obj: #prullenbak.obj; mtl: #prullenbak.mtl" scale= "0.2 0.2 0.2"></a-entity>
-      <a-entity position="-4.55 -0.7 -10.2" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
-      <a-entity position="20.9 -0.7 -16" rotation="0 0 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
-      <a-entity position="16.4 -0.7 -24.5" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
-      <a-entity position="18.2 -0.7 -24.9" rotation="0 270 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
-      <a-entity position="-2 0 4.9" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -7" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -6" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -5" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -5" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -3" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -2" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl" ></a-entity>
-      <a-entity position="7 0 -15" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>
-      <a-entity position="7 0 -4" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>
-      <a-entity position="7 0 -5" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>
-      <a-entity position="7 0 -6" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>s
-      <a-entity position="7 0 -7" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>
-      <a-entity position="7 0 -8" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>
-      <a-entity position="7 0 -9" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl" ></a-entity>
-      <a-camera>
-        <a-cursor> </a-cursor>
-      </a-camera>
+      
+        <a-plane width="100" height="100" color="black" position="0 0 -5" rotation="-90 0 0"> </a-plane>
+        
+        <a-entity position="5 0 -5" obj-model="obj: #plattegrond.obj;" material="color:burlywood"></a-entity>
+        <a-entity position="5 0 -5" obj-model="obj: #prullenbak.obj; mtl: #prullenbak.mtl" scale="0.2 0.2 0.2"></a-entity>
+        
+        <!-- Voordeuren -->
+        <a-entity position="20.9 -0.7 -16" rotation="0 0 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <a-entity position="16.4 -0.7 -24.5" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <!-- Stilteruimte deuren -->
+        <a-entity position="-4.55 -0.7 -10.2" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <a-entity position="18.2 -0.7 -24.9" rotation="0 270 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+
+        <!-- tafels met computers -->
+        <a-entity position="-2 0 4.9" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="7 0 -7" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="7 0 -6" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="7 0 -5" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="7 0 -5" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="7 0 -3" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="7 0 -2" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+
+        <!-- boekenkasten -->
+        <a-entity position="7 0 -15" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 0 -4" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 0 -5" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 0 -6" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 0 -7" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 0 -8" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 0 -9" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        
+        <a-camera position="0 2.7 0">
+            <a-cursor> </a-cursor>
+        </a-camera>
     </a-scene>
-  </body>
+</body>
 </html>
