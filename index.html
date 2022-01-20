@@ -36,6 +36,14 @@
           <a-asset-item id="raam.obj" src="./assets/3D/obj/raam.obj"></a-asset-item>
           <a-asset-item id="receptie.mtl" src="./assets/3D/mtl/receptie.mtl"></a-asset-item>
           <a-asset-item id="receptie.obj" src="./assets/3D/obj/receptie.obj"></a-asset-item>
+          <a-asset-item id="vitrine.mtl" src="./assets/3D/mtl/vitrine.mtl"></a-asset-item>
+          <a-asset-item id="vitrine.obj" src="./assets/3D/obj/vitrine.obj"></a-asset-item>
+          <a-asset-item id="showtafel.mtl" src="./assets/3D/mtl/showtafel.mtl"></a-asset-item>
+          <a-asset-item id="showtafel.obj" src="./assets/3D/obj/showtafel.obj"></a-asset-item>
+          <a-asset-item id="whiteboard.mtl" src="./assets/3D/mtl/whiteboard.mtl"></a-asset-item>
+          <a-asset-item id="whiteboard.obj" src="./assets/3D/obj/whiteboard.obj"></a-asset-item>
+          <a-asset-item id="kleineboekenkast.mtl" src="./assets/3D/mtl/kleineboekenkast.mtl"></a-asset-item>
+          <a-asset-item id="kleineboekenkast.obj" src="./assets/3D/obj/kleineboekenkast.obj"></a-asset-item>
         <!-- normal maps -->
           <img id="normal-metal" src="assets/maps/scratched_metal_01_normal.jpg">
       </a-assets>
@@ -60,34 +68,59 @@
         <a-entity position="-14 0 8.3" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
         <a-entity position="-17 0 8.3" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
         <a-entity position="-19 0 8.3" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="14 0 4" rotation="0 0 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
 
         <!-- boekenkasten -->
-        <a-entity position="6 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="4 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="2 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="0 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-2 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-4 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-6 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-8 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-10 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-12 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-14 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-16 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-18 -3.4 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="4 -3.7 -2" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="4 -3.7 0" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="2 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="0 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-2 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-4 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-6 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-8 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-10 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-12 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-14 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-16 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="-18 -3.7 3.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7 -3.7 11.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+
+        <!-- kleine boekenkasten -->
+        <a-entity position="4 0 -2" rotation="0 0 0" obj-model="obj: #kleineboekenkast.obj; mtl: #kleineboekenkast.mtl"></a-entity>
 
         <!-- tafels om te zitten -->
         <a-entity position="-5 0 -4" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
         <a-entity position="-5 0 -5" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="-10 0 -4" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+        <a-entity position="-10 0 -5" rotation="0 90 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
+
+        <!-- showtafel -->
+        <a-entity position="14.5 0.1 -11.2" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl"></a-entity>
+        <a-entity position="-24.5 0.1 4" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl"></a-entity>
 
         <!-- prullenbak -->
-        <a-entity position="-4 -3 -7.2" rotation="0 90 0" obj-model="obj: #prullenbak.obj; #prullenbak.mtl"></a-entity>
+        <a-entity position="-6 0 -7.2" rotation="0 90 0" obj-model="obj: #prullenbak.obj; mtl: #prullenbak.mtl"></a-entity>
+        <a-entity position="-9 0 -7.2" rotation="0 90 0" obj-model="obj: #prullenbak.obj; mtl: #prullenbak.mtl"></a-entity>
 
         <!-- banken -->
         <a-entity position="-6.9 -2.6 -1" rotation="0 0" obj-model="obj: #bank.obj; mtl: #bank.mtl"></a-entity>
+        <a-entity position="-8.3 -2.6 -7.9" rotation="0 180 0" obj-model="obj: #bank.obj; mtl: #bank.mtl"></a-entity>
+        <a-entity position="8 -2 8.3" rotation="0 90 0" scale="0.9 0.9 0.9" obj-model="obj: #bank.obj; mtl: #bank.mtl"></a-entity>
 
         <!-- receptie-balie -->
         <a-entity position="20 -1.2 -9" rotation="0 270 0" obj-model="obj: #receptie.obj; mtl: #receptie.mtl"></a-entity>
+
+
+        <!-- printer -->
+        <a-entity position="14.3 0 6.7" rotation="0 180 0" obj-model="obj: #printer.obj; mtl: #printer.mtl"></a-entity>
+
+        <!-- vitrine -->
+        <a-entity position="-22.5 0 7"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl"></a-entity>
+        <a-entity position="0.5 0 7"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl"></a-entity>
+
+        <!-- whiteboards -->
+        <a-entity position="-22.5 0 7.5"  rotation="0 135 0" obj-model="obj: #whiteboard.obj; mtl: #whiteboard.mtl"></a-entity>
 
         <a-camera position="0 2.4 0">
             <a-cursor> </a-cursor>
