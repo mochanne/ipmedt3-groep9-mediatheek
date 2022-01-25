@@ -4,7 +4,13 @@ const getDistance = (obj1, obj2) => {
 
 
 AFRAME.registerComponent("viewdistance",{
-    schema: {target: {type: "string", default:"main-camera"}, updaterate: {type: "int", default:15}, distance: {type: "int", default:14}},
+    // Objecten met dit component zullen verdwijnen als ze verden dan een bepaalde waarde van een ander object zijn
+    // 
+    // Args:
+    // target: HTML ID van het object dat je wilt tracken
+    // updaterate: hoe vaak de afstanden worden gecheckt. 1 = altijd, hoe hoger hoe minder vaak (Dit is om te zorgen dat niet alle objecten in dezelfde frame checken)
+    // distance: Minimale afstand tussen de 2 objecten om dit object te weergeven 
+    schema: {target: {type: "string", default:"main-camera"}, updaterate: {type: "int", default:7}, distance: {type: "int", default:15}},
     init: function() {
         this.currupdate = Math.round(Math.random()*this.data.updaterate)
     },
@@ -23,6 +29,16 @@ AFRAME.registerComponent("viewdistance",{
 
 
 AFRAME.registerComponent("focus",{
+    // Dit component werkt als een knop.
+    // Als een bepaald event (default is click) ontvangen word, zal een gelinkt object weergeven worden
+    // Het object word weer ontzichtbaar gemaakt als de camera (dus de gebruiker) een bepaalde aantal stappen weg loopt
+    // 
+    // args:
+    // text_id: het HTML ID van het object dat je wil weergeven
+    // on_event: Het event dat het gelinkte object zichtbaar maakt
+    // invert: als dit op `true` staat, word het gelinkte object onzichtbaar gemaakt op event, in plaats van zichtbaar
+    // lower: veranderd de scale van het gelinkte object als het op `True` staat naar "0 0 0", waardoor er raycasts door de opening kan worden gestuurt
+    // hide_radius: de afstand die de gebruiker van DIT object moet zijn om het gelinkte object ontzichtbaar te maken
     schema: {text_id: {type:"string"}, on_event: {type:"string", default:"click"}, invert: {type: "boolean", default:false}, lower:{type:"boolean", default:false}, hide_radius: {type: "int", default: 8}},
     init: function () {
 
@@ -74,6 +90,8 @@ AFRAME.registerComponent("focus",{
 })
 
 AFRAME.registerComponent('destination', {
+    // Simpel component. Als de gebruiker naar dit object kijkt, speelt een animatie waarin de camera word veplaatst naar deze XZ coordinaten.
+    // Y blijft onveranderd (dus niet geschikt voor hoogteverschillen)
     schema: {},
     events:{
         click: function() {
@@ -87,6 +105,12 @@ AFRAME.registerComponent('destination', {
 })
 
 AFRAME.registerComponent("button", {
+    // Simpel component. Als dit object een click event ontvangt, stuurt het een eigen event naar een gelint object
+    // 
+    // args:
+    // object: het HTML ID van het object waar je een event naar toe stuurt
+    // event: naam van het event dat je stuurt
+    // trigger_on_load: stuur het event in init (waarschuwing: is niet betrouwbaar, vuurt soms niet)
     schema: {object: {type: "string"}, event: {type: "string"}, trigger_on_load: {type:"boolean", default:true}},
     init: function() {
         this.go = function() {document.getElementById(this.data.object).emit(this.data.event,null,true)}
