@@ -1,5 +1,10 @@
 # IPMEDT3 project Groep 9
 # DEELOPDRACHT: HIFI Prototype
+
+Deze branch is voor de deelopdracht HIFI prototype.
+Voor de meest recente code, zie branch "main"
+
+----------------------
 **Opdrachtgever mediacentrum**
 
 Dit is de git repo van ons ipmedt3 project
