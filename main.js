@@ -1,3 +1,26 @@
+const getDistance = (obj1, obj2) => {
+    return obj1.object3D.position.distanceTo(obj2.object3D.position)
+}
+
+
+AFRAME.registerComponent("viewdistance",{
+    schema: {target: {type: "string", default:"main-camera"}, updaterate: {type: "int", default:"15"}, distance: {type: "int", default:"14"}},
+    init: function() {
+        this.currupdate = Math.round(Math.random()*this.data.updaterate)
+    },
+    tick: function() {
+        this.currupdate += 1
+        if (this.currupdate >= this.data.updaterate) {
+        this.currupdate = 0
+        let target = document.getElementById(this.data.target)
+        let distance = getDistance(target, this.el)
+        // console.log(distance)
+        this.el.setAttribute("visible", distance < this.data.distance)
+    }}
+})
+
+
+
 
 AFRAME.registerComponent("focus",{
     schema: {text_id: {type:"string"}, on_event: {type:"string", default:"click"}, invert: {type: "boolean", default:false}, lower:{type:"boolean", default:false}, hide_radius: {type: "int", default: 8}},
