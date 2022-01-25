@@ -1,25 +1,50 @@
 
-
 AFRAME.registerComponent("focus",{
-    schema: {text_id: {type:"string"}, on_event: {type:"string", default:"click"},  hide_radius: {type: "int", default: 8}},
+    schema: {text_id: {type:"string"}, on_event: {type:"string", default:"click"}, invert: {type: "boolean", default:false}, lower:{type:"boolean", default:false}, hide_radius: {type: "int", default: 8}},
     init: function () {
+
+        this.target_scale = {...document.getElementById(this.data.text_id).getAttribute("scale")}
+        this.lowered = false
+
         this.set_textvisible = (state) => {
-            this.is_shown = state
+            if (this.data.invert) { state = !state }
+
             console.log("changed ",this.data.text_id," visibility to ",state)
-            document.getElementById(this.data.text_id).setAttribute("visible",state);
+
+            let target = document.getElementById(this.data.text_id) 
+            target.setAttribute("visible",state);
+            if (this.data.lower) {
+                if (state && this.lowered) {
+                    console.log("unlower")
+                    target.setAttribute("scale", this.target_scale)
+                    this.lowered = false
+                } else if (!state && !this.lowered) {
+                    console.log("lower")
+                    this.target_scale = {...target.getAttribute("scale")}
+                    console.log("saved scale as ",this.target_scale)
+                    target.setAttribute("scale", {x:0, y:0, z:0})
+                    this.lowered = true
+                }
+                console.log(" scale is now ",target.getAttribute("scale"))
+                console.log(" stored scale is now ",this.target_scale)
+            }
         }
-        this.is_shown = false
+        this.check = false
         this.set_textvisible(false)
         this.el.addEventListener(this.data.on_event, (event) => {
+            this.check = true
             this.set_textvisible(true)
         })},
     tick: function() {
-        if (this.is_shown) {
+        if (this.check) {
+            // console.log("check")
             let cam = document.getElementById("main-camera").object3D.position
             let me = this.el.object3D.position
             let distance = cam.distanceTo(me)
+            // console.log("distance to ",me,": ",distance)
             if (distance > this.data.hide_radius) {
                 this.set_textvisible(false)
+                this.check = false
             }
     }
     }
