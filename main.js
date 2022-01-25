@@ -4,7 +4,7 @@ const getDistance = (obj1, obj2) => {
 
 
 AFRAME.registerComponent("viewdistance",{
-    schema: {target: {type: "string", default:"main-camera"}, updaterate: {type: "int", default:"15"}, distance: {type: "int", default:"14"}},
+    schema: {target: {type: "string", default:"main-camera"}, updaterate: {type: "int", default:15}, distance: {type: "int", default:14}},
     init: function() {
         this.currupdate = Math.round(Math.random()*this.data.updaterate)
     },
