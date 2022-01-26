@@ -104,6 +104,20 @@ AFRAME.registerComponent('destination', {
 
 })
 
+AFRAME.registerComponent("unique_trigger",{
+    schema: {arrow_class: {type: "string"}, event_target: {type: "string"}, event_name: {type: "string"}, event_data: {type: "string", default: ""}, listen_event:{type:"string", default:"click"}},
+    init: function() {
+        this.has_triggered = false
+        this.el.addEventListener(this.data.listen_event, () => {
+            if (this.has_triggered) {return}
+            for (ele of document.getElementsByClassName(this.data.arrow_class)) {
+                ele.setAttribute("visible", false)
+            }
+            document.getElementById(this.data.event_target).emit(this.data.event_name, this.data.event_data)
+        })
+    },
+})
+
 AFRAME.registerComponent("button", {
     // Simpel component. Als dit object een click event ontvangt, stuurt het een eigen event naar een gelint object
     // 

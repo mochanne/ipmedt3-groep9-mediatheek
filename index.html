@@ -6,9 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Mediatheek Real Life</title>
+    <!-- Scripts -->
+    <!-- Aframe -->
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <!-- Aframe addons -->
     <script src="https://cdn.jsdelivr.net/gh/diarmidmackenzie/instanced-mesh@v0.3-alpha/src/instanced-mesh.min.js"></script>
+    <!-- Eigen scripts -->
     <script src="main.js"></script>
+    <script src="planeten.js"></script>
 </head>
 
 <body>
@@ -51,15 +56,26 @@
           <a-asset-item id="stoel.obj" src="./assets/3D/obj/stoel.obj"></a-asset-item>
           <a-asset-item id="Schot.mtl" src="./assets/3D/mtl/Schot.mtl"></a-asset-item>
           <a-asset-item id="Schot.obj" src="./assets/3D/obj/Schot.obj"></a-asset-item>
+
+          <a-asset-item id="pijl.obj" src="./assets/3D/obj/pijl.obj"></a-asset-item>
+
+          <img src="./assets/maps/planet-normal.jpg" id="planet-normal-map" alt="">
       </a-assets>
 
-      <!-- Instanced mesh optimizations preload -->
+      <!-- Instanced mesh optimalisaties -->
         <a-entity id="stoel-instance" instanced-mesh="positioning:world;" obj-model="obj: #stoel.obj; mtl: #stoel.mtl"></a-entity>
         <!-- <a-entity id="boekenkast-instance" instanced-mesh="positioning:world;" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity> -->
         <!-- <a-entity id="boekenkast-instance" instanced-mesh="positioning:world;" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity> -->
 
-
+        <!-- de plattegrond zelf -->
         <a-entity position="0 0 0" obj-model="obj: #plattegrond.obj; mtl: #plattegrond.mtl"></a-entity>
+
+        <!-- Objectives tracker -->
+        <a-entity position="8.15 4.7 -8" rotation="0 90 0" text="value: Bekijk het volgende:; align:center; width: 9;"></a-entity>
+        <a-entity position="8.15 3 -8" rotation="0 90 0" id="objectives-tracker" text="value: 1\n2\n3\n4\n5\n6; align:center; width: 10;"></a-entity>
+
+        <a-entity position="8.15 4.5 -15" rotation="0 90 0" text="value: Welkom bij de HSLeiden Mediacentrum VR beleving!; align:center; width: 9;"></a-entity>
+        <a-entity position="8.15 3 -15" rotation="0 90 0" text="value: Dit is een interactieve recreatie van het mediacentrum. Je kunt hier ontdekken wat er allemaal in het mediacentrum te vinden is, en wat jij daar als student aan hebt! Hiernaast staat een lijst van interessante objecten, probeer ze allemaal te bekijken!; align:left; width: 7;"></a-entity>
 
         <!-- destinations -->
         <a-octahedron destination viewdistance position="12.5 0.5 6.7" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
@@ -387,18 +403,25 @@
 
 
         <!-- printer -->
-        <a-entity focus="text_id: printer-text;" position="9.4 0 17" rotation="0 180 0" obj-model="obj: #printer.obj; mtl: #printer.mtl">
+        <a-entity unique_trigger="arrow_class: printer-arrow; event_target: objectives-tracker; event_name: complete; event_data: printer;" focus="text_id: printer-text;" position="9.4 0 17" rotation="0 180 0" obj-model="obj: #printer.obj; mtl: #printer.mtl">
+          <a-entity class="printer-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;"></a-entity>
           <a-entity rotation="0 90 0" id="printer-text" position="0 3 0" text="value:Test, bla bla bla; width: 15; align:center;"></a-entity>
         </a-entity>
 
         <!-- vitrine -->
-        <a-entity position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl"></a-entity>
+        <a-entity position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+          <a-entity position="-1.25 2.65 0.2" planet_display="text: planet-title;" geometry="primitive: sphere; radius: 1;" material="displacementMap: #planet-displace-map; displacementScale: 0.2; normalMap: #planet-normal-map;" animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 100; easing: linear;"></a-entity>
+          <a-entity id="planet-title" rotation="0 90 0" position="-0.75 2.45 0.2" text="value: lorem ipsum; align: center; width: 2;"></a-entity>
+
+
+        </a-entity>
         <a-entity position="-4.5 0 19.5"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl"></a-entity>
 
         <!-- whiteboards -->
         <a-entity position="-33.5 0 21.5"  rotation="0 135 0" obj-model="obj: #whiteboard.obj; mtl: #whiteboard.mtl"></a-entity>
 
-        <a-camera id="main-camera" position="12.5 2.8 -17">
+        <a-entity rotation="0 180 0" position="12.5 1.5 -17" id="main-camera"> <!-- Camera in een entity zodat de speler kan verplaatsen in VR mode -->
+        <a-camera id="view-camera">
             <a-entity
                 cursor="fuse: true; fuseTimeout: 500"
                 geometry="primitive: ring; radiusInner: 0.02; radiusOuter: 0.03"
@@ -409,7 +432,7 @@
                 animation__mouseleave="property: scale; startEvents: mouseleave; easing: easeInCubic; dur: 500; to: 1 1 1"
                 raycaster="far: 10000; interval: 10;"></a-entity>
         </a-camera>
-      <!-- </a-entity> -->
+      </a-entity>
     </a-scene>
 </body>
 </html>
