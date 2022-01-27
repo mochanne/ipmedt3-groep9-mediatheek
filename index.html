@@ -71,9 +71,10 @@
         <a-entity position="0 0 0" obj-model="obj: #plattegrond.obj; mtl: #plattegrond.mtl"></a-entity>
 
         <!-- Objectives tracker -->
-        <a-entity position="8.15 4.7 -8" rotation="0 90 0" text="value: Bekijk het volgende:; align:center; width: 9;"></a-entity>
-        <a-entity position="8.15 3 -8" rotation="0 90 0" id="objectives-tracker" text="value: 1\n2\n3\n4\n5\n6; align:center; width: 10;"></a-entity>
+        <a-entity position="8.15 4.7 -9" rotation="0 90 0" text="value: Bekijk het volgende:; align:center; width: 9;"></a-entity>
+        <a-entity position="8.15 2.8 -12" activitytracker rotation="0 90 0" id="objectives-tracker" text="value: 1\n2\n3\n4\n5\n6; align:left; width: 9;"></a-entity>
 
+        <!-- intro text -->
         <a-entity position="8.15 4.5 -15" rotation="0 90 0" text="value: Welkom bij de HSLeiden Mediacentrum VR beleving!; align:center; width: 9;"></a-entity>
         <a-entity position="8.15 3 -15" rotation="0 90 0" text="value: Dit is een interactieve recreatie van het mediacentrum. Je kunt hier ontdekken wat er allemaal in het mediacentrum te vinden is, en wat jij daar als student aan hebt! Hiernaast staat een lijst van interessante objecten, probeer ze allemaal te bekijken!; align:left; width: 7;"></a-entity>
 
@@ -110,8 +111,10 @@
         <a-entity position="13.2 -0.7 -19.9" rotation="0 270 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
 
         <!-- Stilteruimte deuren -->
-        <a-entity focus="text_id: deur-1; invert:true; hide_radius: 8; lower:true;" id="deur-1" position="-13 -0.7 -5.5" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
-        <a-entity focus="text_id: deur-2; invert:true; hide_radius: 8; lower:true;" id="deur-2" position="15.8 -0.7 -10.95" rotation="0 0 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <!-- Stilteruimte ingang -->
+        <a-entity unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Stilteruimtes;" focus="text_id: deur-2; invert:true; hide_radius: 8; lower:true;" id="deur-2" position="15.8 -0.7 -10.95" rotation="0 0 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <!-- stilteruimte 2 -->
+        <a-entity unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Stilteruimtes;" focus="text_id: deur-1; invert:true; hide_radius: 8; lower:true;" id="deur-1" position="-13 -0.7 -5.5" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
 
         <!-- Stilteruimte ramen -->
           <!-- stilteruimte ingang -->
@@ -200,6 +203,7 @@
         <a-entity position="24.2 1.3 -3.1" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
 
         <!-- stoelen stilteruimte 1 -->
+        
         <a-entity position="-2.7 0 -14.3" rotation="0 0 0" instanced-mesh-member="mesh:#stoel-instance"></a-entity>
         <a-entity position="-2.7 0 -12.3" rotation="0 0 0" instanced-mesh-member="mesh:#stoel-instance"></a-entity>
         <a-entity position="-2.7 0 -10.3" rotation="0 0 0" instanced-mesh-member="mesh:#stoel-instance"></a-entity>
@@ -288,7 +292,10 @@
         <a-entity position="-8 0 19.5" rotation="0 270 0" instanced-mesh-member="mesh:#stoel-instance"></a-entity>
 
         <!-- computers -->
-        <a-entity position="13.3 1.3 10" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity unique_trigger="arrow_class: hlvinden-arrow; event_target: objectives-tracker; event_name: complete; event_data: HLVinden computer;" position="13.3 1.3 10" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl">
+          <a-entity class="hlvinden-arrow" position="0 2 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        </a-entity>
+
         <a-entity position="16.8 1.6 3.5" rotation="0 354 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
         <a-entity position="16.8 1.6 6.5" rotation="0 6 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
         <a-entity position="9.1 1.3 13.5" rotation="0 180 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
@@ -399,23 +406,28 @@
         <a-entity position="-36.8 -2.5 15.3" rotation="0 90 0" obj-model="obj: #bank_hoek.obj; mtl: #bank_hoek.mtl"></a-entity>
 
         <!-- receptie-balie -->
-        <a-entity position="16.2 -1.2 0" rotation="0 270 0" obj-model="obj: #receptie.obj; mtl: #receptie.mtl"></a-entity>
+        <a-entity unique_trigger="arrow_class: balie-arrow; event_target: objectives-tracker; event_name: complete; event_data: Balie;" position="16.2 -1.2 0" rotation="0 270 0" obj-model="obj: #receptie.obj; mtl: #receptie.mtl">
+          <a-entity class="balie-arrow" position="5 4 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        </a-entity>w
 
 
         <!-- printer -->
-        <a-entity unique_trigger="arrow_class: printer-arrow; event_target: objectives-tracker; event_name: complete; event_data: printer;" focus="text_id: printer-text;" position="9.4 0 17" rotation="0 180 0" obj-model="obj: #printer.obj; mtl: #printer.mtl">
-          <a-entity class="printer-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;"></a-entity>
-          <a-entity rotation="0 90 0" id="printer-text" position="0 3 0" text="value:Test, bla bla bla; width: 15; align:center;"></a-entity>
+        <a-entity unique_trigger="arrow_class: printer-arrow; event_target: objectives-tracker; event_name: complete; event_data: Printer;" focus="text_id: printer-text;" position="9.4 0 17" rotation="0 180 0" obj-model="obj: #printer.obj; mtl: #printer.mtl">
+          <a-entity class="printer-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity rotation="0 90 0" id="printer-text" position="0 4 0" text="value: Bij de printer kan je voor een kleine prijs documenten printen. Als je gebruik wil maken van de printer, moet je je OV kaart met je school account linken en er speciaal printtegoed op zetten.; width: 8; align:center;"></a-entity>
         </a-entity>
 
-        <!-- vitrine -->
-        <a-entity position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+        <!-- vitrines -->
+        <a-entity unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+          <a-entity class="vitrine-arrow" position="-1 4 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <!-- Planeet met SWPAI -->
           <a-entity position="-1.25 2.65 0.2" planet_display="text: planet-title;" geometry="primitive: sphere; radius: 1;" material="displacementMap: #planet-displace-map; displacementScale: 0.2; normalMap: #planet-normal-map;" animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 100; easing: linear;"></a-entity>
           <a-entity id="planet-title" rotation="0 90 0" position="-0.75 2.45 0.2" text="value: lorem ipsum; align: center; width: 2;"></a-entity>
-
-
         </a-entity>
-        <a-entity position="-4.5 0 19.5"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl"></a-entity>
+
+        <a-entity unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-4.5 0 19.5"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+          <a-entity class="vitrine-arrow" position="-1 4 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        </a-entity>
 
         <!-- whiteboards -->
         <a-entity position="-33.5 0 21.5"  rotation="0 135 0" obj-model="obj: #whiteboard.obj; mtl: #whiteboard.mtl"></a-entity>

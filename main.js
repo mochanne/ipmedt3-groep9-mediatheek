@@ -2,6 +2,50 @@ const getDistance = (obj1, obj2) => {
     return obj1.object3D.position.distanceTo(obj2.object3D.position)
 }
 
+AFRAME.registerComponent("activitytracker", {
+    init: function() {
+        this.goals = {
+            "Printer": false,
+            "Stilteruimtes": false,
+            "Vitrines": false,
+            "HLVinden computer": false,
+            "Computers": false,
+            "Balie": false,
+            "Showtafel": false,
+            "Zitplekken": false,
+        }
+        this.refresh = () => {
+            let all_positive = true
+            let out = ""
+            for (key in this.goals) {
+                let line = ""
+                if (this.goals[key]) {
+                    line += "+ "
+                } else {
+                    all_positive = false
+                }
+                line += key
+                out += line + "\n"
+                }
+            if (all_positive) {
+                this.el.setAttribute("text","color","green")
+            }  else {
+                this.el.setAttribute("text","color","white")
+            }
+            this.el.setAttribute("text","value",out)
+        }
+        this.refresh()
+    },
+    events: {
+        complete: function(event) {
+            console.log(event)
+            if (event.detail in this.goals) {
+                this.goals[event.detail] = true
+                this.refresh()
+            }
+        }
+    }
+})
 
 AFRAME.registerComponent("viewdistance",{
     // Objecten met dit component zullen verdwijnen als ze verden dan een bepaalde waarde van een ander object zijn
@@ -105,15 +149,18 @@ AFRAME.registerComponent('destination', {
 })
 
 AFRAME.registerComponent("unique_trigger",{
-    schema: {arrow_class: {type: "string"}, event_target: {type: "string"}, event_name: {type: "string"}, event_data: {type: "string", default: ""}, listen_event:{type:"string", default:"click"}},
+    schema: {arrow_class: {type: "string", default:""}, event_target: {type: "string"}, event_name: {type: "string"}, event_data: {type: "string", default: ""}, listen_event:{type:"string", default:"click"}},
     init: function() {
         this.has_triggered = false
         this.el.addEventListener(this.data.listen_event, () => {
             if (this.has_triggered) {return}
+            if (this.data.arrow_class != "") {
             for (ele of document.getElementsByClassName(this.data.arrow_class)) {
                 ele.setAttribute("visible", false)
-            }
-            document.getElementById(this.data.event_target).emit(this.data.event_name, this.data.event_data)
+            }}
+            let target = document.getElementById(this.data.event_target)
+            target.emit(this.data.event_name, this.data.event_data)
+            console.log("emitted ",this.data.event_data," to ",target)
         })
     },
 })
