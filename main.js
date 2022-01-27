@@ -11,6 +11,39 @@ const getDistance = (obj1, obj2) => {
     return out
 }
 
+AFRAME.registerComponent("lod-cloner", {
+    schema: {mesh_instance: {type: "string"}, class: {type: "string"}, parent_to: {type:"string", default:"scene-root"}},
+    init: function(){
+        let parent = document.getElementById(this.data.parent_to)
+
+
+        let outel = document.createElement("a-entity")
+        
+        outel.className = this.data.class
+
+        // out = "<a-entity "
+
+        outel.setAttribute("instanced-mesh-member", "mesh", "#"+this.data.mesh_instance)
+        // out += "instanced-mesh-member=\"mesh:#"+this.data.mesh_instance+'" '
+
+        outel.setAttribute("position", this.el.getAttribute("position"))
+        outel.setAttribute("scale", this.el.getAttribute("scale"))
+        outel.setAttribute("rotation", this.el.getAttribute("rotation"))
+        // let pos = this.el.getAttribute("position") 
+        // out += 'position="' + pos.x + " " + pos.y + " " + pos.z + '" '
+        // let scale = this.el.getAttribute("scale") 
+        // out += 'scale="' + scale.x + " " + scale.y + " " + scale.z + '" '
+
+        // let rot = this.el.getAttribute("rotation") 
+        // out += 'rotation="' + rot.x + " " + rot.y + " " + rot.z + '" '
+
+        // out += 'class="'+this.data.class+'" '
+
+        // out += "></a-entity>"
+        parent.appendChild(outel)
+    }
+})
+
 AFRAME.registerComponent("activitytracker", {
     init: function() {
         this.goals = {
@@ -57,7 +90,43 @@ AFRAME.registerComponent("activitytracker", {
     }
 })
 
-AFRAME.registerComponent("lod-layer",{})
+AFRAME.registerComponent("lod-layer",{
+    schema: {low_lod: {type: "string", default: ""}, high_lod: {type:"string", default: ""}, distance: {type:"int", default:10}, trigger_delay: {type:"int", default:2000}, on_event:{type:"string", default:"moving"}, camera_id: {type: "string", default: "main-camera"}},
+    multiple: true,
+    init: function() {
+        this.recalc = () => {
+            setTimeout(() => {
+                console.log("Recalculating LOD...")
+                let cam = document.getElementById(this.data.camera_id)
+                if (this.data.low_lod != "") {
+                    let low_lods = document.getElementsByClassName(this.data.low_lod)
+                    let viscount = 0
+                    for (low of low_lods) {
+                        let dist = getDistance(cam, low) > this.data.distance
+                        low.object3D.visible = dist
+                        if (dist) {viscount += 1}
+                    }
+                    console.log("Made ",viscount,"/",low_lods.length, " "+this.data.low_lod+" visible")
+                }
+                if (this.data.high_lod != "") {
+                    let high_lods = document.getElementsByClassName(this.data.high_lod)
+                    let viscount = 0
+                    for (hi of high_lods) {
+                        let dist = getDistance(cam, hi) < this.data.distance
+                        hi.object3D.visible = dist
+                        if (dist) {viscount += 1}
+                    }
+                    console.log("Made ",viscount,"/",high_lods.length, " "+this.data.high_lod+" visible")
+                }
+                console.log("Done calculating LOD.")
+            }, this.data.trigger_delay)
+        }
+        this.el.addEventListener(this.data.on_event, () => {
+            this.recalc()
+        })
+        this.recalc()
+    }
+})
 
 AFRAME.registerComponent("viewdistance",{
     // Objecten met dit component zullen verdwijnen als ze verden dan een bepaalde waarde van een ander object zijn
@@ -105,23 +174,23 @@ AFRAME.registerComponent("focus",{
         this.set_textvisible = (state) => {
             if (this.data.invert) { state = !state }
 
-            console.log("changed ",this.data.text_id," visibility to ",state)
+            // console.log("changed ",this.data.text_id," visibility to ",state)
 
             let target = document.getElementById(this.data.text_id) 
             target.setAttribute("visible",state);
             if (this.data.lower) {
                 if (state && this.lowered) {
-                    console.log("unlower")
+                    // console.log("unlower")
                     target.setAttribute("scale", this.target_scale)
                     this.lowered = false
                 } else if (!state && !this.lowered) {
-                    console.log("lower")
+                    // console.log("lower")
                     this.target_scale = {...target.getAttribute("scale")}
                     // console.log("saved scale as ",this.target_scale)
                     target.setAttribute("scale", {x:0, y:0, z:0})
                     this.lowered = true
                 }
-                console.log(" scale is now ",target.getAttribute("scale"))
+                // console.log(" scale is now ",target.getAttribute("scale"))
                 // console.log(" stored scale is now ",this.target_scale)
             }
         }
@@ -155,6 +224,7 @@ AFRAME.registerComponent('destination', {
             let att = document.createAttribute("animation")
             let cam = document.getElementById("main-camera")
             mypos = this.el.getAttribute("position")
+            cam.emit("moving")
             att.value = "property: position; easing: linear; dur: 2000; to: " + mypos.x + " "+ cam.getAttribute("position").y +" " + mypos.z
             cam.setAttribute("animation", att.value)        }
     }
