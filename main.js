@@ -5,6 +5,7 @@ const getDistance = (obj1, obj2) => {
 AFRAME.registerComponent("activitytracker", {
     init: function() {
         this.goals = {
+            "Boekenkasten": false,
             "Printer": false,
             "Stilteruimtes": false,
             "Vitrines": false,
@@ -83,6 +84,7 @@ AFRAME.registerComponent("focus",{
     // invert: als dit op `true` staat, word het gelinkte object onzichtbaar gemaakt op event, in plaats van zichtbaar
     // lower: veranderd de scale van het gelinkte object als het op `True` staat naar "0 0 0", waardoor er raycasts door de opening kan worden gestuurt
     // hide_radius: de afstand die de gebruiker van DIT object moet zijn om het gelinkte object ontzichtbaar te maken
+    multiple: true,
     schema: {text_id: {type:"string"}, on_event: {type:"string", default:"click"}, invert: {type: "boolean", default:false}, lower:{type:"boolean", default:false}, hide_radius: {type: "int", default: 8}},
     init: function () {
 

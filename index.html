@@ -64,7 +64,8 @@
 
       <!-- Instanced mesh optimalisaties -->
         <a-entity id="stoel-instance" instanced-mesh="positioning:world;" obj-model="obj: #stoel.obj; mtl: #stoel.mtl"></a-entity>
-        <!-- <a-entity id="boekenkast-instance" instanced-mesh="positioning:world;" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity> -->
+        <a-entity id="boekenkast-instance" instanced-mesh="positioning:world;" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <!-- instanced-mesh-member="mesh:#boekenkast-instance" -->
         <!-- <a-entity id="boekenkast-instance" instanced-mesh="positioning:world;" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity> -->
 
         <!-- de plattegrond zelf -->
@@ -72,7 +73,7 @@
 
         <!-- Objectives tracker -->
         <a-entity position="8.15 4.7 -9" rotation="0 90 0" text="value: Bekijk het volgende:; align:center; width: 9;"></a-entity>
-        <a-entity position="8.15 2.8 -12" activitytracker rotation="0 90 0" id="objectives-tracker" text="value: 1\n2\n3\n4\n5\n6; align:left; width: 9;"></a-entity>
+        <a-entity position="8.15 2.6 -12" activitytracker rotation="0 90 0" id="objectives-tracker" text="value: 1\n2\n3\n4\n5\n6; align:left; width: 9;"></a-entity>
 
         <!-- intro text -->
         <a-entity position="8.15 4.5 -15" rotation="0 90 0" text="value: Welkom bij de HSLeiden Mediacentrum VR beleving!; align:center; width: 9;"></a-entity>
@@ -85,7 +86,7 @@
         <a-octahedron destination viewdistance position="17.8 0.5 -11" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
         <a-octahedron destination viewdistance position="19 0.5 -6.5" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
         <a-octahedron destination viewdistance position="12.5 0.5 2" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
-        <a-octahedron destination viewdistance position="7 0.5 2" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
+        <a-octahedron destination viewdistance="distance: 20;" position="7 0.5 2" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
         <a-octahedron destination viewdistance="distance: 20;" position="6 0.5 17" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
         <a-octahedron destination viewdistance position="-2.5 0.5 17" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
         <a-octahedron destination viewdistance position="-10 0.5 17.5" scale="0.35 0.35 0.35" material="color:gold; emissive: green; emissiveIntensity: 10;" animation="property: rotation; from: 0 0 0; to: 360 0 360; loop: true; easing:linear;"></a-octahedron>
@@ -112,9 +113,11 @@
 
         <!-- Stilteruimte deuren -->
         <!-- Stilteruimte ingang -->
-        <a-entity unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Stilteruimtes;" focus="text_id: deur-2; invert:true; hide_radius: 8; lower:true;" id="deur-2" position="15.8 -0.7 -10.95" rotation="0 0 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <a-entity focus__2="text_id: stilte_text1;" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Stilteruimtes;" focus="text_id: deur-2; invert:true; hide_radius: 8; lower:true;" id="deur-2" position="15.8 -0.7 -10.95" rotation="0 0 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <a-entity position="26 4 -10.95" id="stilte_text1" rotation="0 -90 0" text="value:In de stilteruimtes kan je zelf in stilte aan je werk zitten. Hier mag je absoluut niet praten of overleggen, zodat andere studenten ook aan hun werk kunnen zitten. Natuurlijk mag je ook gebruik maken van de computers.; width:15; align: center"></a-entity>
         <!-- stilteruimte 2 -->
-        <a-entity unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Stilteruimtes;" focus="text_id: deur-1; invert:true; hide_radius: 8; lower:true;" id="deur-1" position="-13 -0.7 -5.5" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <a-entity focus__2="text_id: stilte_text2" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Stilteruimtes;" focus="text_id: deur-1; invert:true; hide_radius: 8; lower:true;" id="deur-1" position="-13 -0.7 -5.5" rotation="0 90 0" obj-model="obj: #deur.obj; mtl: #deur.mtl"></a-entity>
+        <a-entity position="-10.3 4 -15.75" id="stilte_text2" text="value:In de stilteruimtes kan je zelf in stilte aan je werk zitten. Hier mag je absoluut niet praten of overleggen, zodat andere studenten ook aan hun werk kunnen zitten. Natuurlijk mag je ook gebruik maken van de computers.; width:15; align: center"></a-entity>
 
         <!-- Stilteruimte ramen -->
           <!-- stilteruimte ingang -->
@@ -292,66 +295,69 @@
         <a-entity position="-8 0 19.5" rotation="0 270 0" instanced-mesh-member="mesh:#stoel-instance"></a-entity>
 
         <!-- computers -->
-        <a-entity unique_trigger="arrow_class: hlvinden-arrow; event_target: objectives-tracker; event_name: complete; event_data: HLVinden computer;" position="13.3 1.3 10" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl">
+        <a-entity focus="text_id: hlvinden-text" unique_trigger="arrow_class: hlvinden-arrow; event_target: objectives-tracker; event_name: complete; event_data: HLVinden computer;" position="13.3 1.3 10" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl">
+          <a-entity id="hlvinden-text" rotation="0 90 0" position="-0.8 3 0" text="value: Op deze computer staat altijd HLVinden open. Hierop kan je allerlei databanken doorzoeken voor eventuele boeken of artikelen die je wilt gebruiken, of eventuele scripties als deze handiger zijn. Ook is dit bereikbaar via de mijn HSLeiden website.; width:10; align:center;"></a-entity>
           <a-entity class="hlvinden-arrow" position="0 2 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
         </a-entity>
 
-        <a-entity position="16.8 1.6 3.5" rotation="0 354 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="16.8 1.6 6.5" rotation="0 6 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="9.1 1.3 13.5" rotation="0 180 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-30 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-28 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-25 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-23 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-20 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-18 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-15 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-13 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-10 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
-        <a-entity position="-8 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="16.8 1.6 3.5" rotation="0 354 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="16.8 1.6 6.5" rotation="0 6 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="9.1 1.3 13.5" rotation="0 180 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-30 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-28 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-25 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-23 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-20 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-18 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-15 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-13 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-10 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+        <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="-8 1.3 20.5" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
+
+        <a-entity id="computers-text1" position="-19 4 21.5" rotation="0 180 0" text="value: Elke leerling mag gerust gebruik maken van de computers in het mediacentrum. Het komt goed uit als je bijvoorbeeld iets moet opzoeken voor een project, of een word document schrijven.; width:17; align: center;"></a-entity>
 
 
         <!-- boekenkasten -->
-        <a-entity position="7.2 0 -3.5" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-4.6 0 -3.5" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="10.5 0 9.8" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="10.5 0 8" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-10 0 -3.5" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-29.6 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-27.8 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-26 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-24.2 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-14.4 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-16.2 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-18 0 2.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-7 0 6.5" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-7 0 8.3" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-12.35 0 9.8" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-7 0 13.9" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-7 0 15.7" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="3 0 6.3" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="3 0 8.0" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="3 0 9.7" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="3 0 11.4" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="3 0 13.1" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="2.1 0 14.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="3.8 0 14.2" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-25 0 7.5" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-25 0 9.3" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-25 0 11.1" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-25 0 12.9" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-25 0 14.7" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-30 0 7.5" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-30 0 9.3" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-30 0 11.1" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-30 0 12.9" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-30 0 14.7" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-14.4 0 15.3" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-16.2 0 15.3" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-18 0 15.3" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="0.6 0 4.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-1.2 0 4.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
-        <a-entity position="-3 0 4.5" rotation="0 90 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
+        <a-entity position="7.2 0 -3.5" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-4.6 0 -3.5" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="10.5 0 9.8" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="10.5 0 8" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-10 0 -3.5" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-29.6 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-27.8 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-26 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-24.2 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-14.4 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-16.2 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-18 0 2.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-7 0 6.5" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-7 0 8.3" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-12.35 0 9.8" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-7 0 13.9" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-7 0 15.7" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="3 0 6.3" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="3 0 8.0" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="3 0 9.7" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="3 0 11.4" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="3 0 13.1" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="2.1 0 14.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="3.8 0 14.2" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-25 0 7.5" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-25 0 9.3" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-25 0 11.1" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-25 0 12.9" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-25 0 14.7" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-30 0 7.5" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-30 0 9.3" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-30 0 11.1" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-30 0 12.9" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-30 0 14.7" rotation="0 0 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-14.4 0 15.3" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-16.2 0 15.3" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-18 0 15.3" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="0.6 0 4.5" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-1.2 0 4.5" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
+        <a-entity position="-3 0 4.5" rotation="0 90 0" instanced-mesh-member="mesh:#boekenkast-instance"></a-entity>
 
 
         <!-- kleine boekenkasten -->
@@ -376,10 +382,14 @@
         <a-entity position="-35.2 0 15" rotation="0 0 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
 
         <!-- showtafel -->
-        <a-entity unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;"  position="9.3 0.1 -6.5" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
-          <a-entity class="showtafel-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        <a-entity focus="text_id:showtafel-text1" unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;"  position="9.3 0.1 -6.5" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
+          <a-entity id="showtafel-text1" rotation="0 25 0" position="-2.5 3 0" text="value: Op de showtafels staan allerlei boeken die momenteel uitgelicht zijn. Deze boeken zijn meestal relevant voor je studie, en ze zijn vaak populair.; width:6; align:center;">
+          <a-entity rotation="0 180 0" position="0 0 0" text="value: Op de showtafels staan allerlei boeken die momenteel uitgelicht zijn. Deze boeken zijn meestal relevant voor je studie, en ze zijn vaak populair.; width:6; align:center;"></a-entity>
         </a-entity>
-        <a-entity unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;" position="-36 0.1 18" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
+        <a-entity class="showtafel-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+      </a-entity>
+      <a-entity focus="text_id: showtafel-text2;" unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;" position="-36 0.1 18" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
+          <a-entity id="showtafel-text2" rotation="0 45 0" position="-1.5 3 2" text="value: Op de showtafels staan allerlei boeken die momenteel uitgelicht zijn. Deze boeken zijn meestal relevant voor je studie, en ze zijn vaak populair.; width:6; align:center;"></a-entity>
           <a-entity class="showtafel-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
         </a-entity>
 
@@ -410,9 +420,11 @@
         <a-entity position="-36.8 -2.5 15.3" rotation="0 90 0" obj-model="obj: #bank_hoek.obj; mtl: #bank_hoek.mtl"></a-entity>
 
         <!-- receptie-balie -->
-        <a-entity unique_trigger="arrow_class: balie-arrow; event_target: objectives-tracker; event_name: complete; event_data: Balie;" position="16.2 -1.2 0" rotation="0 270 0" obj-model="obj: #receptie.obj; mtl: #receptie.mtl">
+        <a-entity focus="text_id: balie-text; hide_radius: 10;" unique_trigger="arrow_class: balie-arrow; event_target: objectives-tracker; event_name: complete; event_data: Balie;" position="16.2 -1.2 0" rotation="0 270 0" obj-model="obj: #receptie.obj; mtl: #receptie.mtl">
           <a-entity class="balie-arrow" position="5 4 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
-        </a-entity>w
+          <a-entity id="balie-text" position="5 6 -3.75" text="value: Bij de balie kan je terecht als je vragen hebt over verschillende onderwerpen, van vragen over boeken of zelfs hoe specifieke activiteiten werken. Er is altijd iemand wel gereed om je te helpen; align:center; width: 12;"></a-entity>
+        </a-entity>
+        
 
 
         <!-- printer -->
@@ -422,14 +434,16 @@
         </a-entity>
 
         <!-- vitrines -->
-        <a-entity unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+        <a-entity focus="text_id: vitrine-text1;" unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
           <a-entity class="vitrine-arrow" position="-1 4 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity rotation="0 90 0" position="-1 4.5 0" id="vitrine-text1" text="value:In de virtrines vind je verschillende objecten waarmee je activiteiten kunt doen, bijvoorbeeld bordspellen. Vraag aan de balie als je hier gebruik van wil maken.; align:center; width:8;"></a-entity>
           <!-- Planeet met SWPAI -->
           <a-entity position="-1.25 2.65 0.2" planet_display="text: planet-title;" geometry="primitive: sphere; radius: 1;" material="displacementMap: #planet-displace-map; displacementScale: 0.2; normalMap: #planet-normal-map;" animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 100; easing: linear;"></a-entity>
           <a-entity id="planet-title" rotation="0 90 0" position="-0.75 2.45 0.2" text="value: lorem ipsum; align: center; width: 2;"></a-entity>
         </a-entity>
-
-        <a-entity unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-4.5 0 19.5"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+        
+        <a-entity focus="text_id: vitrine-text2;" unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-4.5 0 19.5"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
+          <a-entity rotation="0 90 0" position="-1 4.5 0" id="vitrine-text2" text="value:In de virtrines vind je verschillende objecten waarmee je activiteiten kunt doen, bijvoorbeeld bordspellen. Vraag aan de balie als je hier gebruik van wil maken.; align:center; width:8;"></a-entity>
           <a-entity class="vitrine-arrow" position="-1 4 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
         </a-entity>
 
