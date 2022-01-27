@@ -1,5 +1,14 @@
+
+
 const getDistance = (obj1, obj2) => {
-    return obj1.object3D.position.distanceTo(obj2.object3D.position)
+    let wrld = new THREE.Vector3()
+    let wrld2 = new THREE.Vector3()
+    let out = obj1.object3D.getWorldPosition(wrld).distanceTo(obj2.object3D.getWorldPosition(wrld2))
+    // console.log(obj1.object3D.getWorldPosition(wrld))
+    // console.log(obj2.object3D.getWorldPosition(wrld))
+    // console.log(out)
+    // console.log('hi')
+    return out
 }
 
 AFRAME.registerComponent("activitytracker", {

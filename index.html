@@ -297,7 +297,7 @@
         <!-- computers -->
         <a-entity focus="text_id: hlvinden-text" unique_trigger="arrow_class: hlvinden-arrow; event_target: objectives-tracker; event_name: complete; event_data: HLVinden computer;" position="13.3 1.3 10" rotation="0 90 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl">
           <a-entity id="hlvinden-text" rotation="0 90 0" position="-0.8 3 0" text="value: Op deze computer staat altijd HLVinden open. Hierop kan je allerlei databanken doorzoeken voor eventuele boeken of artikelen die je wilt gebruiken, of eventuele scripties als deze handiger zijn. Ook is dit bereikbaar via de mijn HSLeiden website.; width:10; align:center;"></a-entity>
-          <a-entity viewdistance class="hlvinden-arrow" position="0 2 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity viewdistance="distance:10;" class="hlvinden-arrow" position="0 2 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
         </a-entity>
 
         <a-entity focus="text_id: computers-text1" unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Computers;" position="16.8 1.6 3.5" rotation="0 354 0" obj-model="obj: #Scgerm.obj; mtl: #Scgerm.mtl"></a-entity>
@@ -339,7 +339,7 @@
         <a-entity unique_trigger="event_target: objectives-tracker; event_name: complete; event_data: Boekenkasten;" position="3 0 8.0" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl"></a-entity>
         
         <a-entity focus="text_id: boekenkast-text;" unique_trigger="arrow_class: boekenkast-arrow; event_target: objectives-tracker; event_name: complete; event_data: Boekenkasten;" position="3 0 9.7" rotation="0 0 0" obj-model="obj: #Boekenkast.obj; mtl: #Boekenkast.mtl">
-          <a-entity class="boekenkast-arrow" position="0 3 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity class="boekenkast-arrow" position="0 3 0" viewdistance="distance:10;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
           <a-entity id="boekenkast-text" position="0 5 0" rotation="0 90 0" text="value: In de boekenkast kan je allerlei verschillende boeken vinden. De boekenkasten zijn gesorteerd op onderwerp. Boeken hebben een sticker waaraan je kunt zien of- en hoelang je het boek mag lenen.; align:center; width: 10;">
             <a-entity rotation="0 180 0" text="value: In de boekenkast kan je allerlei verschillende boeken vinden. De boekenkasten zijn gesorteerd op onderwerp. Boeken hebben een sticker waaraan je kunt zien of- en hoelang je het boek mag lenen.; align:center; width: 10;"></a-entity></a-entity>
         </a-entity>
@@ -392,11 +392,11 @@
           <a-entity id="showtafel-text1" rotation="0 25 0" position="-2.5 3 0" text="value: Op de showtafels staan allerlei boeken die momenteel uitgelicht zijn. Deze boeken zijn meestal relevant voor je studie, en ze zijn vaak populair.; width:6; align:center;">
           <a-entity rotation="0 180 0" position="0 0 0" text="value: Op de showtafels staan allerlei boeken die momenteel uitgelicht zijn. Deze boeken zijn meestal relevant voor je studie, en ze zijn vaak populair.; width:6; align:center;"></a-entity>
         </a-entity>
-        <a-entity class="showtafel-arrow" position="0 3 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        <a-entity class="showtafel-arrow" position="0 3 0" viewdistance="distance: 18;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
       </a-entity>
       <a-entity focus="text_id: showtafel-text2;" unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;" position="-36 0.1 18" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
           <a-entity id="showtafel-text2" rotation="0 45 0" position="-1.5 3 2" text="value: Op de showtafels staan allerlei boeken die momenteel uitgelicht zijn. Deze boeken zijn meestal relevant voor je studie, en ze zijn vaak populair.; width:6; align:center;"></a-entity>
-          <a-entity class="showtafel-arrow" position="0 3 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity class="showtafel-arrow" position="0 3 0" viewdistance="distance: 18;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
         </a-entity>
 
         <!-- prullenbak -->
@@ -427,7 +427,7 @@
 
         <!-- receptie-balie -->
         <a-entity focus="text_id: balie-text; hide_radius: 10;" unique_trigger="arrow_class: balie-arrow; event_target: objectives-tracker; event_name: complete; event_data: Balie;" position="16.2 -1.2 0" rotation="0 270 0" obj-model="obj: #receptie.obj; mtl: #receptie.mtl">
-          <a-entity class="balie-arrow" position="5 4 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity class="balie-arrow" position="5 4 0" viewdistance="distance: 10;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
           <a-entity id="balie-text" position="5 6 -3.75" text="value: Bij de balie kan je terecht als je vragen hebt over verschillende onderwerpen, van vragen over boeken of zelfs hoe specifieke activiteiten werken. Er is altijd iemand wel gereed om je te helpen; align:center; width: 12;"></a-entity>
         </a-entity>
         
@@ -435,13 +435,13 @@
 
         <!-- printer -->
         <a-entity unique_trigger="arrow_class: printer-arrow; event_target: objectives-tracker; event_name: complete; event_data: Printer;" focus="text_id: printer-text;" position="9.4 0 17" rotation="0 180 0" obj-model="obj: #printer.obj; mtl: #printer.mtl">
-          <a-entity class="printer-arrow" position="0 3 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity class="printer-arrow" position="0 3 0" viewdistance="distance: 10;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
           <a-entity rotation="0 90 0" id="printer-text" position="0 4 0" text="value: Bij de printer kan je voor een kleine prijs documenten printen. Als je gebruik wil maken van de printer, moet je je OV kaart met je school account linken en er speciaal printtegoed op zetten.; width: 8; align:center;"></a-entity>
         </a-entity>
 
         <!-- vitrines -->
         <a-entity focus="text_id: vitrine-text1;" unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-35.5 0 1"  rotation="0 0 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
-          <a-entity class="vitrine-arrow" position="-1 4 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity class="vitrine-arrow" position="-1 4 0" viewdistance="distance: 10;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
           <a-entity rotation="0 90 0" position="-1 4.5 0" id="vitrine-text1" text="value:In de virtrines vind je verschillende objecten waarmee je activiteiten kunt doen, bijvoorbeeld bordspellen. Vraag aan de balie als je hier gebruik van wil maken.; align:center; width:8;"></a-entity>
           <!-- Planeet met SWPAI -->
           <a-entity position="-1.25 2.65 0.2" planet_display="text: planet-title;" geometry="primitive: sphere; radius: 1;" material="displacementMap: #planet-displace-map; displacementScale: 0.2; normalMap: #planet-normal-map;" animation="property: rotation; from: 0 0 0; to: 0 360 0; loop: true; dur: 100; easing: linear;"></a-entity>
@@ -450,7 +450,7 @@
         
         <a-entity focus="text_id: vitrine-text2;" unique_trigger="arrow_class: vitrine-arrow; event_target: objectives-tracker; event_name: complete; event_data: Vitrines;" position="-4.5 0 19.5"  rotation="0 90 0" obj-model="obj: #vitrine.obj; mtl: #vitrine.mtl">
           <a-entity rotation="0 90 0" position="-1 4.5 0" id="vitrine-text2" text="value:In de virtrines vind je verschillende objecten waarmee je activiteiten kunt doen, bijvoorbeeld bordspellen. Vraag aan de balie als je hier gebruik van wil maken.; align:center; width:8;"></a-entity>
-          <a-entity class="vitrine-arrow" position="-1 4 0" viewdistance="distance: 25;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+          <a-entity class="vitrine-arrow" position="-1 4 0" viewdistance="distance: 10;" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
         </a-entity>
 
         <!-- whiteboards -->
