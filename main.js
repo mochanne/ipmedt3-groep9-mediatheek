@@ -11,7 +11,7 @@ AFRAME.registerComponent("activitytracker", {
             "HLVinden computer": false,
             "Computers": false,
             "Balie": false,
-            "Showtafel": false,
+            "Showtafels": false,
             "Zitplekken": false,
         }
         this.refresh = () => {

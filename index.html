@@ -376,8 +376,12 @@
         <a-entity position="-35.2 0 15" rotation="0 0 0" obj-model="obj: #Tafel.obj; mtl: #Tafel.mtl"></a-entity>
 
         <!-- showtafel -->
-        <a-entity position="9.3 0.1 -6.5" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl"></a-entity>
-        <a-entity position="-36 0.1 18" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl"></a-entity>
+        <a-entity unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;"  position="9.3 0.1 -6.5" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
+          <a-entity class="showtafel-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        </a-entity>
+        <a-entity unique_trigger="arrow_class: showtafel-arrow; event_target: objectives-tracker; event_name: complete; event_data: Showtafels;" position="-36 0.1 18" rotation="0 90 0" obj-model="obj: #showtafel.obj; mtl: #showtafel.mtl">
+          <a-entity class="showtafel-arrow" position="0 3 0" obj-model="obj: #pijl.obj;" material="color:red;" animation="property: rotation; from: 0 0 0; to: 0 360 w0; loop: true; easing:linear; dur: 3000"></a-entity>
+        </a-entity>
 
         <!-- prullenbak -->
         <a-entity position="-16 0 9.7" rotation="0 90 0" obj-model="obj: #prullenbak.obj; mtl: #prullenbak.mtl"></a-entity>
