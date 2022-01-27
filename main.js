@@ -38,7 +38,7 @@ AFRAME.registerComponent("activitytracker", {
                 out += line + "\n"
                 }
             if (all_positive) {
-                this.el.setAttribute("text","color","green")
+                this.el.setAttribute("text","color","#AAFF00")
             }  else {
                 this.el.setAttribute("text","color","white")
             }
