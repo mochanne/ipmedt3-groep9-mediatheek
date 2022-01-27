@@ -57,6 +57,8 @@ AFRAME.registerComponent("activitytracker", {
     }
 })
 
+AFRAME.registerComponent("lod-layer",{})
+
 AFRAME.registerComponent("viewdistance",{
     // Objecten met dit component zullen verdwijnen als ze verden dan een bepaalde waarde van een ander object zijn
     // 
@@ -103,23 +105,23 @@ AFRAME.registerComponent("focus",{
         this.set_textvisible = (state) => {
             if (this.data.invert) { state = !state }
 
-            // console.log("changed ",this.data.text_id," visibility to ",state)
+            console.log("changed ",this.data.text_id," visibility to ",state)
 
             let target = document.getElementById(this.data.text_id) 
             target.setAttribute("visible",state);
             if (this.data.lower) {
                 if (state && this.lowered) {
-                    // console.log("unlower")
+                    console.log("unlower")
                     target.setAttribute("scale", this.target_scale)
                     this.lowered = false
                 } else if (!state && !this.lowered) {
-                    // console.log("lower")
+                    console.log("lower")
                     this.target_scale = {...target.getAttribute("scale")}
                     // console.log("saved scale as ",this.target_scale)
                     target.setAttribute("scale", {x:0, y:0, z:0})
                     this.lowered = true
                 }
-                // console.log(" scale is now ",target.getAttribute("scale"))
+                console.log(" scale is now ",target.getAttribute("scale"))
                 // console.log(" stored scale is now ",this.target_scale)
             }
         }
