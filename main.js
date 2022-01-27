@@ -155,10 +155,11 @@ AFRAME.registerComponent("unique_trigger",{
     init: function() {
         this.has_triggered = false
         this.el.addEventListener(this.data.listen_event, () => {
+            console.log("debug: ",this.el.getAttribute("position"))
             if (this.has_triggered) {return}
             if (this.data.arrow_class != "") {
             for (ele of document.getElementsByClassName(this.data.arrow_class)) {
-                ele.setAttribute("visible", false)
+                ele.setAttribute("scale", {x:0, y:0, z:0})
             }}
             let target = document.getElementById(this.data.event_target)
             target.emit(this.data.event_name, this.data.event_data)
